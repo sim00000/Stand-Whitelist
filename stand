@@ -1,0 +1,2219 @@
+if getgenv().whitelisted == true then 
+	print("successful whitelisted!")
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "whitelisted!"; 
+		Text = "successful whitelisted!";
+		Duration = 30;
+	})
+	
+if not game.Workspace:FindFirstChild("hello") then
+	
+local loopart = Instance.new("Part")
+loopart.Parent = workspace
+loopart.Name = "hello"
+
+Player = game:GetService("Players")
+lp = game:GetService("Players").LocalPlayer
+rs = game:GetService("RunService")
+local OWNER = getgenv().Settings.Owner
+
+local alt1 = getgenv().Settings.alt1
+local alt2 = getgenv().Settings.alt2
+local alt3 = getgenv().Settings.alt3
+local alt4 = getgenv().Settings.alt4
+local alt5 = getgenv().Settings.alt5
+local fps = getgenv().Settings.fps
+
+local JoJoPoseKey = getgenv().OwnerSettings.JoJo_Pose_Key
+local WalkSpeedKey = getgenv().OwnerSettings.WalkSpeed_Key
+local MegaJumpKey = getgenv().OwnerSettings.MegaJump_Key
+local TpMouseKey = getgenv().OwnerSettings.TpMouse_Key
+local nofog = getgenv().OwnerSettings.Nofog
+local noface = getgenv().OwnerSettings.Noface
+local jojoanimation = getgenv().OwnerSettings.JoJoAnimation
+
+
+local numberofalts = 1
+
+
+
+assert(getrawmetatable)
+gmt = getrawmetatable(game)
+setreadonly(gmt, false)
+old = gmt.__namecall
+gmt.__namecall =
+	newcclosure(
+		function(self, ...)
+		local args = {...}
+		if tostring(args[1]) == "BreathingHAMON" then
+			return
+		elseif tostring(args[1]) == "TeleportDetect" then
+			return
+		elseif tostring(args[1]) == "CHECKER_1" then
+			return
+		elseif tostring(args[1]) == "CHECKER" then
+			return
+		elseif tostring(args[1]) == "GUI_CHECK" then
+			return
+		elseif tostring(args[1]) == "OneMoreTime" then
+			return
+		elseif tostring(args[1]) == "checkingSPEED" then
+			return
+		elseif tostring(args[1]) == "BANREMOTE" then
+			return
+		elseif tostring(args[1]) == "PERMAIDBAN" then
+			return
+		elseif tostring(args[1]) == "KICKREMOTE" then
+			return
+		elseif tostring(args[1]) == "BR_KICKPC" then
+			return end
+
+    return old(self, ...)
+end)
+
+local vu = game:GetService("VirtualUser") -- AntiAfk
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+	vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	wait(1)
+	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LegoHacker1337/legohacks/main/PhysicsServiceOnClient.lua"))()
+setfflag("HumanoidParallelRemoveNoPhysics", "False")
+setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+rs:BindToRenderStep("w", Enum.RenderPriority.Camera.Value, function()
+end)
+
+if lp == Player[OWNER] then 
+	print("owner of the stand")
+--OWNER POWER
+
+
+
+
+
+if not game["Loaded"] or not game:GetService("Players")["LocalPlayer"] then
+	game["Loaded"]:Wait()
+	game:WaitForChild(game:GetService("Players"))
+	game:GetService("Players"):WaitForChild(game:GetService("Players").LocalPlayer.Name)
+	repeat
+		game:GetService("RunService").RenderStepped:Wait()
+	until game:GetService("Players").LocalPlayer.Character
+end
+
+if noface == true then 
+if game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
+	game.Players.LocalPlayer.Character.Head.face:Destroy()
+end
+end
+
+
+UserInputService = game:GetService("UserInputService")
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+
+UserInputService.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode[TpMouseKey] and not game:GetService('UserInputService'):GetFocusedTextBox() then
+		tpmouse()
+	end
+	end)
+
+if jojoanimation == true then 
+Animate = game:GetService("Players").LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1149612882"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1149612882"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1151231493"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1150967949"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1148811837"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1148811837"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1148863382"
+end 
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Animation!") then
+		Animate = game:GetService("Players").LocalPlayer.Character.Animate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1149612882"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1151231493"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1150967949"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1148811837"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1148811837"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1148863382"
+	end
+end)
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Yare yare daze.") then
+	play(4605143996,true ,true)
+	end
+end)
+
+if nofog == true then 
+game:GetService"Lighting".FogEnd = 1000000
+end 
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Noface!") then
+		game.Players.LocalPlayer.Character.Head.face:Destroy()
+	end
+end)
+
+function tpmouse()
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+
+	play(4826619573,true ,true)
+	if mouse.Target then
+	hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
+	end
+end
+
+local SuperJumpEnabled = false
+
+getgenv().Toggled = false
+local UIS = game:GetService("UserInputService")
+UIS.InputBegan:connect(function(input,gameProcessed)
+	if input.UserInputType == Enum.UserInputType.Keyboard then
+		if input.KeyCode == Enum.KeyCode[MegaJumpKey] then
+			if UIS:GetFocusedTextBox() == nil then
+				if getgenv().Toggled == false then
+					getgenv().Toggled = true
+				else
+					getgenv().Toggled = true
+				end;end;end;end;end)
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Cookies = LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(game.ReplicatedStorage.ClientAnimations.Roll)
+local OriginalKeyUpValue = 0
+local Anim = Instance.new("Animation" )
+Anim.AnimationId = "rbxassetid://2788290270"
+local Hover = Instance.new("Animation", game.Workspace)
+Hover.Name = "Hover"
+Hover.AnimationId = "rbxassetid://698251653"
+local LeftPunch = Instance.new("Animation",  game.ReplicatedStorage.ClientAnimations)LeftPunch.Name = "LeftPunch"
+LeftPunch.AnimationId = "rbxassetid://2788308661"
+local LeftAnim = LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(game.ReplicatedStorage.ClientAnimations.LeftPunch)
+local CoreUI = Instance.new("ScreenGui")
+local Humanoid = game.Players.LocalPlayer.Character.Humanoid
+CoreUI.Parent = game.CoreGui
+local SaveLocation = nil
+local RigWalk = nil
+local RigIdle = nil
+local InTimeErase = false
+
+local Pointing = Instance.new("Animation", game.ReplicatedStorage.ClientAnimations)
+Pointing.AnimationId = "rbxassetid://507770453"
+
+local UNMASKKK = Instance.new("Animation", game.ReplicatedStorage.ClientAnimations)
+UNMASKKK.Name = "Unmask"
+UNMASKKK.AnimationId = "rbxassetid://3380629232"
+
+local MASKKK = Instance.new("Animation", game.ReplicatedStorage.ClientAnimations)
+MASKKK.Name = "Mask"
+MASKKK.AnimationId = "rbxassetid://3380627692"
+
+local Poter = LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(Pointing)
+Poter.Looped = true
+Poter.Priority = Enum.AnimationPriority.Action
+
+local WalkAnimation = Instance.new("Animation", game.ReplicatedStorage.ClientAnimations)
+WalkAnimation.AnimationId = "rbxassetid://2510198475"
+
+local Idle = Instance.new("Animation", game.ReplicatedStorage.ClientAnimations)
+Idle.AnimationId = "rbxassetid://507766388"
+
+local OldChar = LocalPlayer.Character
+local MaskAnim = LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(game.ReplicatedStorage.ClientAnimations.Mask)
+local UnmaskAnim = LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(game.ReplicatedStorage.ClientAnimations.Unmask)
+
+function FoV()
+	local fov = coroutine.wrap(function()
+		local Camera = workspace.Camera
+		for i = 1, 20 do
+			game.TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = 8*i}):Play()
+			wait(0.01)
+		end
+		for i = 1, 20 do
+			game.TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = 160-i*4.5}):Play()
+			wait(0.01)
+		end
+	end)
+	fov()
+end
+
+local WalkSpeed = false
+
+local function rm()
+	for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+		if v.Name == "OriginalPosition" then
+			v:Destroy()
+		elseif v.Name == "OriginalSize" then
+			v:Destroy()
+		elseif v.Name == "AvatarPartScaleType" then
+			v:Destroy()
+		end
+	end
+end
+
+
+function Lighting()
+	if game.Lighting:FindFirstChild("ERASE") == nil then
+		local sound5 = Instance.new("Sound", CoreUI)
+		sound5.Volume = 0.1
+		sound5.Name = "ERASE"
+		sound5.Looped = true
+		sound5.SoundId = "rbxassetid://3167092959"
+		sound5:Play()
+
+		game.Lighting.Sky.Parent = workspace
+		game:GetObjects("rbxassetid://6546113226")[1].Parent=game.Lighting
+
+	else
+		workspace.Sky.Parent = game.Lighting
+		CoreUI:FindFirstChild("ERASE"):Destroy()
+		game.Lighting:FindFirstChild("ERASE"):Destroy()
+	end
+end
+
+function TimeEraseUI()
+	local sound5 = Instance.new("Sound", CoreUI)
+	sound5.Volume = 0.1
+	sound5.SoundId = "rbxassetid://6546128175"
+	sound5:Play()
+
+	local Image = Instance.new("ImageLabel", CoreUI)
+	Image.Image = "http://www.roblox.com/asset/?id=6546043746"
+	Image.BackgroundTransparency = 1
+	Image.AnchorPoint = Vector2.new(0.5, 0.5)
+	Image.Size = UDim2.fromScale(1, 1)
+	Image.Position = UDim2.fromScale(-0.5, 0.5)
+	delay(0, function()
+		for i = 0, 1, 0.1 do
+			Image.Position = UDim2.fromScale(-Image.Position.X.Scale+i, 0.5)
+			Image.ImageTransparency = Image.ImageTransparency+i
+			wait(.01)
+		end
+		Image:Destroy()
+		sound5:Destroy()
+	end)
+end
+
+function ModelCharacter()
+	if workspace:FindFirstChild(LocalPlayer.Name.."StringKOD") == nil then
+		local MODEL = Instance.new("Model", workspace)
+		MODEL.Name = LocalPlayer.Name.."StringKOD"
+
+		OldChar.Humanoid:UnequipTools()
+
+		for i, v in pairs(OldChar:GetChildren()) do 
+			if (v:IsA("BasePart")  or v:IsA("MeshPart")) and v.Parent:FindFirstChildOfClass("Humanoid") and v.Name ~= "HumanoidRootPart" then
+				local Part = v:Clone()
+				Part.Parent = MODEL
+				Part.Name = v.Name
+				Part.Material = Enum.Material.ForceField
+				Part.CFrame = v.CFrame
+				Part.Transparency = 0.5 
+				Part.BrickColor = BrickColor.Red()
+				Part.CanCollide = false
+				Part.Anchored = true
+				for i, v  in pairs(Part:GetChildren()) do 
+					if v.ClassName ~= "SpecialMesh" then
+						v:Destroy()
+					end
+				end
+			end
+		end
+		local NewCharacter = game:GetObjects("rbxassetid://6547055500")[1]
+		NewCharacter.Parent = MODEL
+		NewCharacter.Name = "Idaro"
+
+		workspace.Camera.CameraSubject = NewCharacter.Humanoid
+		SaveLocation = OldChar.HumanoidRootPart.CFrame
+		InTimeErase = true
+		NewCharacter.HumanoidRootPart.CFrame = SaveLocation
+
+		RigIdle = NewCharacter:WaitForChild("Humanoid"):LoadAnimation(Idle)
+		RigIdle.Looped = true
+		RigIdle.Priority = Enum.AnimationPriority.Action
+		RigWalk = NewCharacter:WaitForChild("Humanoid"):LoadAnimation(WalkAnimation)
+		RigWalk.Looped = true
+		RigWalk.Priority = Enum.AnimationPriority.Action
+		WalkSpeed = true
+		RigIdle:Play()
+	else
+		InTimeErase = false
+		WalkSpeed = false
+		workspace.Camera.CameraSubject =  OldChar.Humanoid
+		OldChar.HumanoidRootPart.CFrame =  workspace:FindFirstChild(LocalPlayer.Name.."StringKOD").Idaro.HumanoidRootPart.CFrame
+		workspace:FindFirstChild(LocalPlayer.Name.."StringKOD"):Destroy()
+	end
+end
+
+function Slide()
+	local XD = OldChar.Humanoid:LoadAnimation(Anim)
+	XD:Play()
+	XD.TimePosition = 0.15
+	XD.Looped = false
+	XD:AdjustSpeed(1.1)
+end
+
+function AddVelocity(Vel, Char)
+	Char.HumanoidRootPart.Velocity = Char.HumanoidRootPart.Velocity+Vel
+end
+
+local IsJump = false
+
+function Jumping()
+	if IsJump == false then
+		return false
+	else
+		return true
+	end
+end
+
+local Mouse = LocalPlayer:GetMouse()
+
+local MoveDirection = Vector3.new(0,0,0)
+local WSpped = 5 
+local LeftSpeed = 0
+local UpSpeed = 0
+
+function IdleRigXD()
+	if RigIdle and RigWalk.IsPlaying and WSpped == 0 and LeftSpeed == 0 and UpSpeed == 0 then
+		RigIdle:Play()
+		RigWalk:Stop()
+	end
+end
+
+function WalkRigXD()
+	if RigWalk and RigIdle.IsPlaying then
+		RigIdle:Stop()
+		RigWalk:Play()
+	end
+end
+
+Mouse.KeyDown:Connect(function(KeyDownXD)
+	if workspace:FindFirstChild(LocalPlayer.Name.."StringKOD") then
+		if KeyDownXD == "w" then
+			WSpped = -5
+			WalkRigXD()
+		elseif KeyDownXD == "a" then
+			LeftSpeed = -1
+			WalkRigXD()
+		elseif KeyDownXD == "d" then
+			LeftSpeed = 1
+			WalkRigXD()
+		elseif KeyDownXD == "s" then
+			WSpped = 1
+			WalkRigXD()
+		end
+	end
+end)
+
+Mouse.KeyUp:Connect(function(KeyDownXD)
+	if KeyDownXD == "w" then
+		WSpped = 0
+		IdleRigXD()
+	elseif KeyDownXD == "a" then
+		LeftSpeed = 0
+		IdleRigXD()
+	elseif KeyDownXD == "d" then
+		LeftSpeed = -0
+		IdleRigXD()
+	elseif KeyDownXD == "s" then
+		WSpped = 0
+		IdleRigXD()
+	end
+end)
+
+
+local CD = false
+local uis = game:GetService("UserInputService")
+
+uis.InputBegan:Connect(function(i, XD)
+	if i.KeyCode == Enum.KeyCode[MegaJumpKey] and XD == false then
+		if SuperJumpEnabled == false then
+			SuperJumpEnabled = true
+		elseif SuperJumpEnabled == true then
+			SuperJumpEnabled = false
+		end
+	end
+end)
+
+uis.InputBegan:Connect(function(i, XD)
+	if i.KeyCode == Enum.KeyCode.Space and XD == false then
+		if workspace:FindFirstChild(LocalPlayer.Name.."StringKOD") == nil then
+			if Jumping() == true and not Poter.IsPlaying then
+				AddVelocity(OldChar.HumanoidRootPart.CFrame.LookVector*150, OldChar)
+				IsJump = false
+				Cookies:Stop()
+				CD = true
+				play(6543434995, true, true)
+				Slide()
+				repeat wait() until workspace:FindPartOnRayWithWhitelist(Ray.new(OldChar.HumanoidRootPart.Position, Vector3.new(0, -4 * OldChar.HumanoidRootPart.Size.y, 0)), { workspace.MAP })
+				CD = false
+			end
+		else
+			workspace:FindFirstChild(LocalPlayer.Name.."StringKOD"):FindFirstChild("Idaro").Humanoid:ChangeState(3)
+		end
+	end
+end)
+
+
+
+
+
+
+local bro = false
+local TimeErase, CanCel = "Time erase!", "Time erase!"
+local XD = false
+LocalPlayer.Chatted:Connect(function(MSG)
+	if MSG:sub(1, 11) == TimeErase and XD == false and not Poter.IsPlaying then
+		XDDDD(XD)
+	elseif MSG == CanCel and XD == true and not Poter.IsPlaying then
+		XDDDD(XD)
+	end
+end)
+
+function XDDDD(XDR)
+	if XDR == false then
+		XD = true
+		play(6546133414, true, true)
+		wait(2)
+		TimeEraseUI()
+		FoV()
+		Lighting()
+		ModelCharacter()
+	else
+		XD = false
+		InTimeErase = false
+		wait(0.1)
+		play(6543435253, true, true)
+		TimeEraseUI()
+		ModelCharacter()
+		Lighting()
+		FoV()
+end
+end
+
+
+function Jump(...)
+	(...).Jumping:Connect(function()
+		if SuperJumpEnabled == true then
+		if CD == false and not Poter.IsPlaying then
+			CD = true
+			delay(1, function()
+				CD = false
+			end)
+			Cookies:Play(0, 1, 1.4)
+			AddVelocity(OldChar.HumanoidRootPart.CFrame.UpVector*120, OldChar)
+			play(6543436906, true, true)
+			delay(0, function()
+				IsJump = true
+				wait(1) 
+				if IsJump == true then
+					IsJump = false
+				end
+			end)
+			end
+		end
+	end)
+end
+
+
+Jump(OldChar.Humanoid)
+
+LocalPlayer.CharacterAdded:Connect(function(Character)
+	wait(1)
+	if Character.Name == LocalPlayer.Name then
+		Jump(Character.Humanoid)
+		Poter = Character:WaitForChild("Humanoid"):LoadAnimation(Pointing)
+		Poter.Looped = true
+		Poter.Priority = Enum.AnimationPriority.Action
+
+		Cookies = Character:WaitForChild("Humanoid"):LoadAnimation(game.ReplicatedStorage.ClientAnimations.Roll)
+		OldChar = Character
+	end
+end)
+
+game["Run Service"].Heartbeat:Connect(function()
+	if InTimeErase then
+		for i, v in pairs(OldChar:GetChildren()) do
+			if v:IsA("BasePart") then
+				v.CFrame = CFrame.new(math.random(200, 500), math.random(200, 500), math.random(200, 500))
+				v.Velocity = Vector3.new(0,0,0)
+			end
+		end
+
+		if OldChar:FindFirstChild("Combat") and XD == true then
+			XD = false
+			XDDDD(true)
+		end
+
+		if WalkSpeed == true then
+			MoveDirection = Vector3.new(LeftSpeed, UpSpeed, WSpped)
+			workspace:FindFirstChild(LocalPlayer.Name.."StringKOD"):FindFirstChild("Idaro").Humanoid:Move(MoveDirection, true)
+		end
+	else
+	end
+end)
+       
+
+repeat
+game:GetService('RunService').RenderStepped:Wait();
+until game:GetService('Players').LocalPlayer.Character:FindFirstChild('FULLY_LOADED_CHAR');
+if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
+game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
+end;
+
+local Posing = false;
+local Key = 0;
+
+local Fashionable = Instance.new('Animation', game:GetService('ReplicatedStorage'):FindFirstChild('ClientAnimations'));
+Fashionable.AnimationId = 'rbxassetid://3333331310';
+Fashionable.Name = 'Fashionable';
+
+local Pose = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Fashionable);
+Pose.Looped = true;
+Pose.Priority = Enum.AnimationPriority.Action;
+
+function Play(i, v)
+if game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack'):FindFirstChild('[Boombox]') then
+	local Tool = nil;
+	if game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool') and w == true then
+		Tool = game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool')
+		game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool').Parent = game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack');
+	end;
+	game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack'):FindFirstChild('[Boombox]').Parent = game:GetService('Players').LocalPlayer.Character;
+	game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('Boombox', i);
+	game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]').RequiresHandle = false;
+	if game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]'):FindFirstChild('Handle') then
+		game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]'):FindFirstChild('Handle'):Destroy();
+	end
+	game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]').Parent = game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack')
+	if game:GetService('Players').LocalPlayer:FindFirstChildOfClass('PlayerGui'):FindFirstChild('MainScreenGui'):FindFirstChild('BoomboxFrame') then
+		game:GetService('Players').LocalPlayer:FindFirstChildOfClass('PlayerGui'):FindFirstChild('MainScreenGui'):FindFirstChild('BoomboxFrame').Visible = false;
+	end;
+	if Tool ~= true then
+		if Tool then
+			Tool.Parent = game:GetService('Players').LocalPlayer.Character
+		end;
+	end;
+end;
+end;
+
+game:GetService('UserInputService').InputBegan:Connect(function(v, i)
+if not i and v.UserInputType == Enum.UserInputType.Keyboard then
+	if v.KeyCode == Enum.KeyCode[JoJoPoseKey] and Posing == false then
+		Posing = true;
+		game:GetService('Players').LocalPlayer.Character:FindFirstChild('HumanoidRootPart').Anchored = true;
+		game:GetService('StarterGui'):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false);
+		
+	elseif v.KeyCode == Enum.KeyCode[JoJoPoseKey] and Posing == true then
+		game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
+		Posing = false;
+		Pose:Stop();
+		game:GetService('Players').LocalPlayer.Character:FindFirstChild('HumanoidRootPart').Anchored = false;
+		game:GetService('StarterGui'):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true);
+	end;
+end;
+end);
+
+game:GetService('Players').LocalPlayer.CharacterAdded:Connect(function()
+repeat
+	game:GetService('RunService').Heartbeat:Wait();
+until game:GetService('Players').LocalPlayer.Character:FindFirstChild('FULLY_LOADED_CHAR');
+if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
+	game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
+end;
+Pose = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Fashionable);
+Pose.Looped = true;
+Pose.Priority = Enum.AnimationPriority.Action;
+end);
+
+local timepos = {
+	"6",
+	"2",
+	"1"
+}
+game:GetService('RunService').RenderStepped:Connect(function()
+pcall(function()
+	if Posing == true then
+		if not Pose.IsPlaying then
+			Pose:Play();
+			Pose:AdjustSpeed(0);
+			Pose.TimePosition = (timepos[math.random(1,#timepos)])
+		end;
+	end;
+end);
+end);
+
+repeat
+    wait()
+until game:IsLoaded()
+local L_134_ = game:service('Players')
+local L_135_ = L_134_.LocalPlayer
+repeat
+    wait()
+until L_135_.Character
+local L_136_ = game:service('UserInputService')
+local L_137_ = game:service('RunService')
+getgenv().Multiplier = 0.60
+local L_138_ = false
+local L_139_
+L_136_.InputBegan:connect(function(L_140_arg0)
+    if L_140_arg0.KeyCode == Enum.KeyCode.LeftBracket then
+        Multiplier = Multiplier + 0.01
+        print(Multiplier)
+        wait(0.2)
+        while L_136_:IsKeyDown(Enum.KeyCode.LeftBracket) do
+            wait()
+            Multiplier = Multiplier + 0.01
+            print(Multiplier)
+        end
+    end
+    if L_140_arg0.KeyCode == Enum.KeyCode.RightBracket then
+        Multiplier = Multiplier - 0.01
+        print(Multiplier)
+        wait(0.2)
+        while L_136_:IsKeyDown(Enum.KeyCode.RightBracket) do
+            wait()
+            Multiplier = Multiplier - 0.01
+            print(Multiplier)
+        end
+    end
+    if L_140_arg0.KeyCode == Enum.KeyCode[WalkSpeedKey] and not game:GetService('UserInputService'):GetFocusedTextBox() then
+        L_138_ = not L_138_
+        if L_138_ == true then
+            repeat
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.Humanoid.MoveDirection * Multiplier
+                game:GetService("RunService").Stepped:wait()
+            until L_138_ == false
+        end
+    end
+end)
+
+local UIS = game:GetService('UserInputService') 
+local bool = false 
+
+UIS.InputBegan:Connect(function(input) 
+	if  input.KeyCode == Enum.KeyCode.T and not game:GetService('UserInputService'):GetFocusedTextBox() then 
+	if bool == false then
+	getgenv().Underground = true
+	
+	if getgenv().Underground == true then 
+		local lp = game:GetService"Players".LocalPlayer
+	    local HulkJump = Instance.new("IntValue",lp.Character.BodyEffects.Movement);HulkJump.Name = "HulkJump"
+	    end
+	    
+bool = true 
+	   
+	   else 
+	   local lp = game:GetService"Players".LocalPlayer
+	    lp.Character.BodyEffects.Movement.HulkJump:Destroy()
+	    bool = false
+	    getgenv().Underground = false 
+	end
+	end
+
+end)
+
+	    
+
+
+
+
+--STAND FONCTION 
+
+
+
+else 
+	
+	if lp == Player[alt1] then 
+		numberofalts = 1 
+	elseif lp == Player[alt2] then 
+		numberofalts = 2 
+	elseif lp == Player[alt3] then
+		numberofalts = 3
+	elseif lp == Player[alt4] then
+		numberofalts = 4
+	elseif lp == Player[alt5] then
+		numberofalts = 5
+	end
+
+	_G.FPS = fps
+	local clock = tick()
+	
+	_G.fps = true 
+	game:service"RunService".RenderStepped:connect(function()
+		if _G.fps == true then
+			while clock + 1 / _G.FPS > tick() do end
+			wait()
+			clock = tick()
+		end
+	end)
+
+	if game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
+		game.Players.LocalPlayer.Character.Head.face:Destroy()
+	elseif not game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
+		print("Already has no face!")
+	end
+
+	local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+	local g = game
+	local w = g.Workspace
+	local l = g.Lighting
+	local t = w.Terrain
+	t.WaterWaveSize = 0
+	t.WaterWaveSpeed = 0
+	t.WaterReflectance = 0
+	t.WaterTransparency = 0
+	l.GlobalShadows = false
+	l.FogEnd = 9e9
+	l.Brightness = 0
+	settings().Rendering.QualityLevel = "Level01"
+	for i, v in pairs(g:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+			v.Lifetime = NumberRange.new(0)
+		elseif v:IsA("Explosion") then
+			v.BlastPressure = 1
+			v.BlastRadius = 1
+		elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+			v.Enabled = false
+		elseif v:IsA("MeshPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+			v.TextureID = 10385902758728957
+		end
+	end
+	for i, e in pairs(l:GetChildren()) do
+		if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+			e.Enabled = false
+		end
+	end
+print("Low Graphics Enabled!")
+
+local alt1bool = false 
+local alt2bool = false
+local alt3bool = false
+local alt4bool = false 
+local alt5bool = false
+
+if numberofalts == 1 then 
+ alt1bool = true
+ alt2bool = false
+ alt3bool = false
+ alt4bool = false 
+ alt5bool = false 
+end
+
+if numberofalts == 2 then 
+	 alt1bool = true
+	 alt2bool = true
+	 alt3bool = false
+	 alt4bool = false 
+	 alt5bool = false 
+	end
+
+if numberofalts == 3 then 
+		 alt1bool = true
+		 alt2bool = true
+		 alt3bool = true 
+		 alt4bool = false 
+		 alt5bool = false 
+		end
+
+if numberofalts == 4 then
+	alt1bool = true
+	alt2bool = true
+	alt3bool = true
+	alt4bool = true 
+	alt5bool = false 
+end
+
+if numberofalts == 5 then 
+	alt1bool = true
+	alt2bool = true
+	alt3bool = true
+	alt4bool = true 
+	alt5bool = true 
+end
+		
+if  alt1bool == true then 
+if lp == Player[alt1] then
+
+	local e = Instance.new("Part", game.Workspace)
+	e.Parent = game.Workspace
+	e.Name = "FLOATPART"
+	e.Transparency = 0
+	e.Anchored = true
+
+	game:GetService('RunService').Stepped:connect(function()
+		if noclip2 == true then
+			e.CFrame = game.Players[alt1].Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.4 , 0)
+			for i, v in pairs(game.Players[alt1].Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+				end
+			end
+		else
+			for i, v in pairs(game.Players[alt1].Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = true
+				end
+			end
+			e.CFrame = game.Players[alt1].Character.HumanoidRootPart.CFrame + Vector3.new(0, -50 , 0)
+		end
+	end)
+	--end
+
+
+
+
+
+	local rsummon = {
+		"8713037614",
+		"8705304536",
+		"8769131644",
+		"4683843842"
+	}
+	game.Players[OWNER].Chatted:Connect(function(msg)
+		if msg == ("Set2") or msg == ("Set3") then 
+		play((rsummon[math.random(1,#rsummon)]), true, true)
+		end
+	end)
+
+	game.Players[OWNER].Chatted:Connect(function(msg)
+		if msg == ("Set1") or msg == ("Set all!")  then
+			Pos = "Left"
+			local hover = Instance.new("Animation", game.Workspace)
+			hover.Name = "Hover"
+			hover.AnimationId = "rbxassetid://3541114300"
+			local char = game.Players.LocalPlayer.Character
+			local hoveranim = char.Humanoid:LoadAnimation(game.Workspace.Hover)
+		
+			local movehover = Instance.new("Animation", game.Workspace)
+		movehover.Name = "MoveHover"
+		movehover.AnimationId = "rbxassetid://3541044388"
+		local char = game.Players.LocalPlayer.Character
+		local movehoveranim = char.Humanoid:LoadAnimation(game.Workspace.MoveHover)
+
+			local followplayer = game.Players[OWNER]
+			followplayer.Character.Humanoid.Changed:Connect(function()
+			if followplayer.Character.Humanoid.MoveDirection.Magnitude ~= 0 then
+			movehoveranim:Play()
+				else
+			movehoveranim:Stop()
+			   hoveranim:Play()
+				end
+			end)
+			noclip2 = true
+			follow2 = true
+			bring = false 
+			local A_1 = "Stand 1 : ON" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+			local A_1 = "Ready." local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)  
+			play((rsummon[math.random(1,#rsummon)]), true, true)
+			follow2  = true
+			game:GetService('RunService').Stepped:connect(function()
+				if follow2 == true and Pos == "Right" then
+					hoveranim:Play()
+					
+					game:GetService("Players")[alt1].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(2, 0.8, 2.5)
+				elseif follow2 == true and Pos == "Left" then
+
+					
+					game:GetService("Players")[alt1].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(-2, 0.8, 2.5)
+				elseif follow2 == true and Pos == "Back" then
+					hoveranim:Play()
+					
+					game:GetService("Players")[alt1].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(.6, 2, 3)
+				end
+			end)
+		end
+	end)
+	
+
+
+
+local commands = {}
+local prefix = "/"
+local Players = game.Players
+
+function findPlayer(name)
+	for _, player in ipairs(Players:GetPlayers()) do
+		if (string.lower(name) == string.sub(string.lower(player.DisplayName), 1, #name)) then
+			return player;
+		end
+	end
+end
+
+
+
+commands.e = function(arguments)
+	local CMD = arguments[1]
+	if CMD == 'fling' then
+		if arguments[2] then
+			local target1 = tostring(findPlayer(arguments[2]))
+			follow2 = false
+			noclip2 = false
+			bring = false 
+ 
+local LocalPlayer = game.Players.LocalPlayer
+	local Loop
+        local OldFlingPos = LocalPlayer.Character.HumanoidRootPart.Position
+         local OldPos = LocalPlayer.Character.HumanoidRootPart.CFrame
+        local loopFunction = function()
+            
+                local FlingEnemy = Players[target1].Character
+                if FlingEnemy and LocalPlayer.Character then
+                    FlingTorso = FlingEnemy.UpperTorso
+                    local dis = 3.85
+                    local increase = 6
+                    if FlingEnemy.Humanoid.MoveDirection.X < 0 then
+                        xchange = -increase
+                    elseif FlingEnemy.Humanoid.MoveDirection.X > 0  then
+                        xchange = increase
+                    else
+                        xchange = 0
+                    end
+                    if FlingEnemy.Humanoid.MoveDirection.Z < 0 then
+                        zchange = -increase
+                    elseif FlingEnemy.Humanoid.MoveDirection.Z > 0 then
+                        zchange = increase
+                    else
+                        zchange = 0
+                    end 
+                    
+
+                    if LocalPlayer.Character then
+                        LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):ChangeState(11)
+                        LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(FlingTorso.Position.X + math.random(-dis,dis) + xchange, FlingTorso.Position.Y, FlingTorso.Position.Z + math.random(-dis,dis) + zchange) * CFrame.Angles(math.rad(LocalPlayer.Character.HumanoidRootPart.Orientation.X + 350),math.rad(LocalPlayer.Character.HumanoidRootPart.Orientation.Y + 200),math.rad(LocalPlayer.Character.HumanoidRootPart.Orientation.Z + 240))
+                        LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(500000,500000,500000)
+                    end
+                end
+        end;
+        local Start = function()    
+            OldFlingPos = LocalPlayer.Character.HumanoidRootPart.Position
+            Loop = game:GetService("RunService").Heartbeat:Connect(loopFunction);
+        end;
+        local Pause = function()
+            Loop:Disconnect()
+            local vectorZero = Vector3.new(0, 0, 0)
+            LocalPlayer.Character.PrimaryPart.Velocity = vectorZero
+            LocalPlayer.Character.PrimaryPart.RotVelocity = vectorZero
+            LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(OldFlingPos) * CFrame.Angles(math.rad(0),math.rad(137.92),math.rad(0))
+        end;
+     
+        Start()	
+        wait(15)
+        Pause()
+        LocalPlayer.Character.HumanoidRootPart.CFrame = OldPos
+        Pause()
+        wait(2)
+        LocalPlayer.Character.HumanoidRootPart.CFrame = OldPos
+        Pause()
+		follow2 = true 
+		noclip2 = true 
+		play(2554208392,true ,true)
+    
+        
+LocalPlayer.Players[OWNER].Chatted:Connect(function(msg2)
+         if msg2 == ("Unfling!")  then    
+Pause()
+ LocalPlayer.Character.HumanoidRootPart.CFrame = OldPos
+Pause()
+wait(2)
+ LocalPlayer.Character.HumanoidRootPart.CFrame = OldPos
+Pause()
+follow2 = true 
+noclip2 = true 
+play(2554208392,true ,true)
+ end
+ end)
+
+ 
+
+		end
+	end
+end
+
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+msg = string.lower(msg)
+local splitString = msg:split(" ")
+local slashCommand = splitString[1] 
+local cmd = slashCommand:split(prefix)    
+local cmdName = cmd[2]    
+if commands[cmdName] then 
+local arguments = {} 
+for i = 2, #splitString, 1 do
+table.insert(arguments,splitString[i])            
+end
+commands[cmdName](arguments)
+end
+end)
+end
+end
+local autostomp = false
+local commands = {}
+local prefix = "/"
+local Players = game.Players
+local Attack = "Light!"
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Heavy!")  then
+	Attack = 'Heavy!'
+	end
+end) 
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Light!")  then
+	Attack = 'Light!'
+	end
+end) 
+
+	game:GetService('RunService').Stepped:connect(function()
+		if autostomp == true then
+			game.ReplicatedStorage.MainEvent:FireServer("Stomp")
+		end
+	end)
+	
+local StandUser = game.Players[OWNER]
+local Player = game.Players.LocalPlayer
+local Players = game.Players
+local StudLimit = 75
+local MainEvent = game:GetService("ReplicatedStorage").MainEvent
+	
+	function Hit()
+		LPlayer = game.Players.localPlayer
+		if Attack == 'Heavy!' then
+			if LPlayer.Character:FindFirstChild('Combat') then
+				LPlayer.Character:FindFirstChild('Combat'):Activate()
+			else
+				LPlayer.Backpack:FindFirstChild('Combat').Parent = LPlayer.Character
+			end   
+		else
+			if Attack == 'Light!' then
+				if LPlayer.Character:FindFirstChild('Combat') then
+					LPlayer.Character:FindFirstChild('Combat'):Activate()
+					LPlayer.Character:FindFirstChild('Combat'):Deactivate()
+				else
+					LPlayer.Backpack:FindFirstChild('Combat').Parent = LPlayer.Character
+				end  
+			end
+		end
+	end
+
+	function GetNearest()
+		local ClosestPlayer
+		local ClosestDistance = math.huge
+		for _,v in pairs(Players:GetPlayers()) do
+			if v.Character and StandUser.Character then
+				if v.Character:FindFirstChild('BodyEffects') and v.Character:FindFirstChild('BodyEffects'):FindFirstChild('Defense') and v.Character:FindFirstChild('BodyEffects'):FindFirstChild('BreakingParts') then
+					if v ~= StandUser and v:FindFirstChild('DataFolder') and v:FindFirstChild('DataFolder'):FindFirstChild('Information') then
+						if v.Character:WaitForChild('BodyEffects')['K.O'].Value == false then
+							if v:FindFirstChild('DataFolder'):FindFirstChild('Information'):FindFirstChild('Crew') then
+								if v.Character:FindFirstChild('HumanoidRootPart') then
+									if v.DataFolder.Information.Crew.Value ~= StandUser.DataFolder.Information.Crew.Value or not v.DataFolder.Information:FindFirstChild('Crew') then
+										local Distance = (v.Character.HumanoidRootPart.Position - StandUser.Character.HumanoidRootPart.Position).Magnitude
+										if Distance < ClosestDistance then
+											if Distance <= StudLimit then
+												ClosestDistance = Distance
+												ClosestPlayer = v
+											end
+										end
+									end
+								end
+							else
+								if v.Character:FindFirstChild('HumanoidRootPart') then
+									local Distance = (v.Character.HumanoidRootPart.Position - StandUser.Character.HumanoidRootPart.Position).Magnitude
+									if Distance < ClosestDistance then
+										if Distance <= StudLimit then
+											ClosestDistance = Distance
+											ClosestPlayer = v
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		return ClosestPlayer
+	end
+	
+	function GetNearest2()
+		local ClosestPlayer
+		local ClosestDistance = math.huge
+		for _,v in pairs(Players:GetPlayers()) do
+			if v.Character and StandUser.Character then
+				if v.Character:FindFirstChild('BodyEffects') and v.Character:FindFirstChild('BodyEffects'):FindFirstChild('Defense') and v.Character:FindFirstChild('BodyEffects'):FindFirstChild('BreakingParts') then
+					if v ~= StandUser and v:FindFirstChild('DataFolder') and v:FindFirstChild('DataFolder'):FindFirstChild('Information') then
+						if v.Character:WaitForChild('BodyEffects')['K.O'].Value == true then
+							if v:FindFirstChild('DataFolder'):FindFirstChild('Information'):FindFirstChild('Crew') then
+								if v.Character:FindFirstChild('HumanoidRootPart') then
+									if v.DataFolder.Information.Crew.Value ~= StandUser.DataFolder.Information.Crew.Value or not v.DataFolder.Information:FindFirstChild('Crew') then
+										local Distance = (v.Character.HumanoidRootPart.Position - StandUser.Character.HumanoidRootPart.Position).Magnitude
+										if Distance < ClosestDistance then
+											if Distance <= StudLimit then
+												ClosestDistance = Distance
+												ClosestPlayer = v
+											end
+										end
+									end
+								end
+							else
+								if v.Character:FindFirstChild('HumanoidRootPart') then
+									local Distance = (v.Character.HumanoidRootPart.Position - StandUser.Character.HumanoidRootPart.Position).Magnitude
+									if Distance < ClosestDistance then
+										if Distance <= StudLimit then
+											ClosestDistance = Distance
+											ClosestPlayer = v
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		return ClosestPlayer
+	end
+
+
+function findPlayer(name)
+	for _, player in ipairs(Players:GetPlayers()) do
+		if (string.lower(name) == string.sub(string.lower(player.DisplayName), 1, #name)) then
+			return player;
+		end
+	end
+end
+
+function findPlayer2(name)
+	for _, player in ipairs(Players:GetPlayers()) do
+		if (string.lower(name) == string.sub(string.lower(player.Name), 1, #name)) then
+			return player;
+		end
+	end
+end
+
+ 
+	if  altbool5 == true and lp == Players[alt5] then 
+	print("kill function not anabled")
+	else 
+	commands.e = function(arguments)
+	local CMD = arguments[1]
+	if CMD == 'b' then
+		if arguments[2] then
+			local target1 = tostring(findPlayer(arguments[2]))
+			play(616593932, true, true)
+			follow2 = false
+			noclip2 = false
+			bring = true
+			game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+			repeat wait()
+				if game.Players[target1].Character.BodyEffects["K.O"].Value == false then
+					if game. Players.LocalPlayer.Backpack:FindFirstChild("Combat") then
+						game.Players.LocalPlayer.Backpack:FindFirstChild("Combat").Parent = game.Players.LocalPlayer.Character
+					end
+					wait()
+					game.Players.LocalPlayer.Character:FindFirstChild('Combat'):Activate()
+					game.Players.LocalPlayer.Character:FindFirstChild('Combat'):Deactivate()
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[target1].Character.HumanoidRootPart.CFrame
+				end
+			until game.Players[target1].Character.BodyEffects["K.O"].Value == true or bring == false
+			wait()
+			repeat wait()
+				if game.Players[target1].Character.BodyEffects["K.O"].Value == true then
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[target1].Character.UpperTorso.Position) * CFrame.new(0,1,0)
+					wait(.4)
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[target1].Character.UpperTorso.Position) * CFrame.new(0,1,0)
+					wait()
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[target1].Character.UpperTorso.Position) * CFrame.new(0,1,0)
+					wait(.4)
+					game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
+					wait(.6)
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame
+				end
+
+				if game.Players[target1].Character.BodyEffects["K.O"].Value == false then
+
+				end
+			until game.Players[target1].Character.BodyEffects["K.O"].Value == false or bring == false
+			follow2 = true
+			noclip2 = true
+			play(2554208392,true ,true)
+		end
+	elseif CMD == 't' then
+		if arguments[2] then
+			local target3 = tostring(findPlayer(arguments[2]))
+			play(616593932, true, true)
+			gettingkilled = target3
+			noclip2 = true
+			follow2 = false
+			killed = true
+
+			bring = false
+			game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+		end
+	elseif CMD == 't2' then
+		if arguments[2] then
+			local target4 = tostring(findPlayer(arguments[2]))
+			play(616593932, true, true)
+			brotagettingkilled = target4
+			noclip2 = true
+			follow2 = false
+			killed = false
+			bring = false
+			killtheplayer = true
+			game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+			--here
+		end
+	elseif CMD == 'msg' then
+		if arguments[2] and not arguments[3]  then
+			local msg = arguments[2]	
+			local A_1 = ""..msg local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+		end
+		if arguments[2] and arguments[3] and not arguments[4] then 
+			local A_1 = ""..arguments[2].." "..arguments[3] local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+		end
+		if arguments[2] and arguments[3] and  arguments[4] and not arguments[5] then 
+			local A_1 = ""..arguments[2].." "..arguments[3].." "..arguments[4] local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+		end
+		if arguments[2] and arguments[3] and  arguments[4] and  arguments[5] and not arguments[6] then 
+			local A_1 = ""..arguments[2].." "..arguments[3].." "..arguments[4].." "..arguments[5] local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+		end
+		if arguments[2] and arguments[3] and  arguments[4] and  arguments[5] and arguments[6] and not arguments[7] then 
+			local A_1 = ""..arguments[2].." "..arguments[3].." "..arguments[4].." "..arguments[5].." "..arguments[6] local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+		end
+		if arguments[2] and arguments[3] and  arguments[4] and  arguments[5] and arguments[6] and  arguments[7] then 
+			local A_1 = ""..arguments[2].." "..arguments[3].." "..arguments[4].." "..arguments[5]..""..arguments[6].." "..arguments[7] local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+		end
+	end
+end
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	msg = string.lower(msg)
+	local splitString = msg:split(" ")
+	local slashCommand = splitString[1] 
+	local cmd = slashCommand:split(prefix)    
+	local cmdName = cmd[2]    
+	if commands[cmdName] then
+		local arguments = {} 
+		for i = 2, #splitString, 1 do
+			table.insert(arguments,splitString[i])            
+		end
+		commands[cmdName](arguments)
+	end
+end)
+
+
+-----
+game:service"RunService".RenderStepped:connect(function()
+	if killed == true then
+		Hit()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[gettingkilled].Character.UpperTorso.CFrame
+		game.Workspace.Camera.CameraSubject = game:GetService("Players")[gettingkilled].Character.UpperTorso
+	end
+end)	
+
+
+game:service"RunService".RenderStepped:connect(function()
+	if killtheplayer == true and game.Players[brotagettingkilled].Character.BodyEffects["K.O"].Value == false then
+		Hit()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[brotagettingkilled].Character.UpperTorso.CFrame
+		game.Workspace.Camera.CameraSubject = game:GetService("Players")[brotagettingkilled].Character.UpperTorso
+	else
+		if killtheplayer == true and  game.Players[brotagettingkilled].Character.BodyEffects["K.O"].Value == true then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[brotagettingkilled].Character.UpperTorso.Position) * CFrame.new(0,3,0)
+			game.Workspace.Camera.CameraSubject = game:GetService("Players")[brotagettingkilled].Character.UpperTorso
+			autostomp = true
+		end
+	end
+end)
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Drop.") then
+
+		game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
+
+	end    
+end)
+
+
+
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Untarget!") then
+		noclip2 = true
+		follow2 = true
+		killed = false
+		killtheplayer = false
+		autostomp = false
+		game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+		play(2554208392,true ,true)
+end
+end)
+
+game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+	if msg == ("Unbring!")  then
+		bring = false
+		noclip2 = true
+		follow2 = true
+		play(2554208392,true ,true)
+	end
+end)
+end
+
+
+
+if alt2bool == true then 
+if lp == Players[alt2] then 
+	
+
+	local e = Instance.new("Part", game.Workspace)
+	e.Parent = game.Workspace
+	e.Name = "FLOATPART"
+	e.Transparency = 0
+	e.Anchored = true
+	noclip2 = true
+	follow2 = true
+
+
+	game:GetService('RunService').Stepped:connect(function()
+		if noclip2 == true then
+			e.CFrame = game.Players[alt2].Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.6 , 0)
+			for i, v in pairs(game.Players[alt2].Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+				end
+			end
+		else
+			for i, v in pairs(game.Players[alt2].Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = true
+				end
+			end
+			e.CFrame = game.Players[alt2].Character.HumanoidRootPart.CFrame + Vector3.new(0, -50 , 0)
+		end
+	end)
+	--end
+
+
+
+
+
+	game.Players[OWNER].Chatted:Connect(function(msg)
+		if msg == ("Set2") or msg == ("Set all!") then
+			Pos2 = "Right"
+			local hover = Instance.new("Animation", game.Workspace)
+			hover.Name = "Hover"
+			hover.AnimationId = "rbxassetid://3541114300"
+			local char = game.Players.LocalPlayer.Character
+			local hoveranim = char.Humanoid:LoadAnimation(game.Workspace.Hover)
+		
+			local movehover = Instance.new("Animation", game.Workspace)
+		movehover.Name = "MoveHover"
+		movehover.AnimationId = "rbxassetid://3541044388"
+		local char = game.Players.LocalPlayer.Character
+		local movehoveranim = char.Humanoid:LoadAnimation(game.Workspace.MoveHover)
+		
+		
+		local followplayer = game.Players[OWNER]
+		followplayer.Character.Humanoid.Changed:Connect(function()
+		if followplayer.Character.Humanoid.MoveDirection.Magnitude ~= 0 then
+		movehoveranim:Play()
+			else
+		movehoveranim:Stop()
+		   hoveranim:Play()
+			end
+		end)
+
+			noclip2 = true
+			follow2 = true
+			local A_1 = "Stand 2 : ON" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+			local A_1 = "Ready." local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)  
+			game:GetService('RunService').Stepped:connect(function()
+				if follow2 == true and Pos2 == "Right" then
+					hoveranim:Play()
+					game:GetService("Players")[alt2].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(2, 7, 2.5)
+				elseif follow2 == true and Pos2 == "Left" then
+					hoveranim:Play()
+					game:GetService("Players")[alt2].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(-8, 10, 2.5)
+				elseif follow2 == true and Pos2 == "Back" then
+					hoveranim:Play()
+					game:GetService("Players")[alt2].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(.6, 13, 3)
+				end
+			end)
+
+		end
+	end)
+
+	
+local commands = {}
+local prefix = "/"
+
+commands.e = function(arguments)
+	local CMD = arguments[1]
+	if CMD == 'glitch' then
+		if arguments[2] then
+			local target1 = tostring(findPlayer(arguments[2]))
+			follow2 = false
+			noclip2 = false
+			bring = false 
+            
+	resetplayer2 = Game.Players.LocalPlayer
+	resetplayer2.Character.HumanoidRootPart.CFrame = CFrame.new(-591.085022, 8.31477833, -742.803528, 0.994070172, 5.60480942e-08, 0.108740292, -6.51724079e-08, 1, 8.03552425e-08, -0.108740292, -8.69656134e-08, 0.994070172)
+	
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[target1].Character.UpperTorso.Position) * CFrame.new(0,1,0)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[target1].Character.UpperTorso.Position) * CFrame.new(0,1,0)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[target1].Character.UpperTorso.Position) * CFrame.new(0,1,0)
+	wait(0.4)
+	local args = {
+    [1] = "Grabbing",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+
+game:GetService("Workspace").Players[alt2].BodyEffects.Grabbed:Destroy()
+	
+	wait(60)
+	resetplayer.Character.Head:Destroy()
+		resetplayer2.Character.RightHand:Destroy()
+		resetplayer2.Character.LeftHand:Destroy()
+		resetplayer2.Character.LowerTorso:Destroy()
+		resetplayer2.Character.UpperTorso:Destroy()
+		resetplayer2.Character.LeftLowerLeg:Destroy()
+		resetplayer2.Character.RightLowerLeg:Destroy()
+		resetplayer2.Character.RightFoot:Destroy()
+		resetplayer2.Character.LeftFoot:Destroy()
+		resetplayer2.Character.LeftUpperLeg:Destroy()
+		resetplayer2.Character.RightUpperLeg:Destroy()
+		resetplayer2.Character.RightUpperArm:Destroy()
+		resetplayer2.Character.RightLowerArm:Destroy()
+		resetplayer2.Character.LeftLowerArm:Destroy()
+		resetplayer2.Character.LeftUpperArm:Destroy()
+	
+
+	
+
+
+
+		end
+	end
+end
+
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+msg = string.lower(msg)
+local splitString = msg:split(" ")
+local slashCommand = splitString[1] 
+local cmd = slashCommand:split(prefix)    
+local cmdName = cmd[2]    
+if commands[cmdName] then 
+local arguments = {} 
+for i = 2, #splitString, 1 do
+table.insert(arguments,splitString[i])            
+end
+commands[cmdName](arguments)
+end
+end)
+else
+	print("declined")
+end
+end
+
+if alt3bool == true then 
+if lp == Players[alt3] then 
+	
+	local e = Instance.new("Part", game.Workspace)
+	e.Parent = game.Workspace
+	e.Name = "FLOATPART"
+	e.Transparency = 0
+	e.Anchored = true
+	
+	
+
+
+	game:GetService('RunService').Stepped:connect(function()
+		if noclip2 == true then
+			e.CFrame = game.Players[alt3].Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.4 , 0)
+			for i, v in pairs(game.Players[alt3].Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+				end
+			end
+		else
+			for i, v in pairs(game.Players[alt3].Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = true
+				end
+			end
+			e.CFrame = game.Players[alt3].Character.HumanoidRootPart.CFrame + Vector3.new(0, -50 , 0)
+		end
+	end)
+
+
+
+	game.Players[OWNER].Chatted:Connect(function(msg)
+		if msg == ("Set3") or msg == ("Set all!") then
+			Pos3 = "Right"
+			local hover = Instance.new("Animation", game.Workspace)
+			hover.Name = "Hover"
+			hover.AnimationId = "rbxassetid://3541114300"
+			local char = game.Players.LocalPlayer.Character
+			local hoveranim = char.Humanoid:LoadAnimation(game.Workspace.Hover)
+		
+			local movehover = Instance.new("Animation", game.Workspace)
+		movehover.Name = "MoveHover"
+		movehover.AnimationId = "rbxassetid://3541044388"
+		local char = game.Players.LocalPlayer.Character
+		local movehoveranim = char.Humanoid:LoadAnimation(game.Workspace.MoveHover)
+
+
+			local followplayer = game.Players[OWNER]
+			followplayer.Character.Humanoid.Changed:Connect(function()
+			if followplayer.Character.Humanoid.MoveDirection.Magnitude ~= 0 then
+			movehoveranim:Play()
+				else
+			movehoveranim:Stop()
+			   hoveranim:Play()
+				end
+			end)
+			noclip2 = true
+			follow2 = true
+			local A_1 = "Stand 3 : ON" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+			local A_1 = "Ready." local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)  
+			game:GetService('RunService').Stepped:connect(function()
+				if follow2 == true and Pos3 == "Right" then
+					hoveranim:Play()
+					game:GetService("Players")[alt3].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(2, 0.8, 2.5)
+				elseif follow2 == true and Pos3 == "Left" then
+					hoveranim:Play()
+					game:GetService("Players")[alt3].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(-8, 10, 2.5)
+				elseif follow2 == true and Pos3 == "Back" then
+					hoveranim:Play()
+					game:GetService("Players")[alt3].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(.6, 13, 3)
+				end
+			end)
+		end
+	end)
+else
+	print("declined")
+end
+end
+
+if alt4bool == true then 
+	if lp == Players[alt4] then 
+		
+		local e = Instance.new("Part", game.Workspace)
+		e.Parent = game.Workspace
+		e.Name = "FLOATPART"
+		e.Transparency = 0
+		e.Anchored = true
+		
+		
+	
+	
+		game:GetService('RunService').Stepped:connect(function()
+			if noclip2 == true then
+				e.CFrame = game.Players[alt4].Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.4 , 0)
+				for i, v in pairs(game.Players[alt4].Character:GetDescendants()) do
+					if v:IsA("BasePart") then
+						v.CanCollide = false
+					end
+				end
+			else
+				for i, v in pairs(game.Players[alt4].Character:GetDescendants()) do
+					if v:IsA("BasePart") then
+						v.CanCollide = true
+					end
+				end
+				e.CFrame = game.Players[alt4].Character.HumanoidRootPart.CFrame + Vector3.new(0, -50 , 0)
+			end
+		end)
+	
+	
+	
+		game.Players[OWNER].Chatted:Connect(function(msg)
+			if msg == ("Set4") or msg == ("Set all!") then
+				Pos3 = "Left"
+				local hover = Instance.new("Animation", game.Workspace)
+				hover.Name = "Hover"
+				hover.AnimationId = "rbxassetid://3541114300"
+				local char = game.Players.LocalPlayer.Character
+				local hoveranim = char.Humanoid:LoadAnimation(game.Workspace.Hover)
+			
+				local movehover = Instance.new("Animation", game.Workspace)
+			movehover.Name = "MoveHover"
+			movehover.AnimationId = "rbxassetid://3541044388"
+			local char = game.Players.LocalPlayer.Character
+			local movehoveranim = char.Humanoid:LoadAnimation(game.Workspace.MoveHover)
+	
+	
+				local followplayer = game.Players[OWNER]
+				followplayer.Character.Humanoid.Changed:Connect(function()
+				if followplayer.Character.Humanoid.MoveDirection.Magnitude ~= 0 then
+				movehoveranim:Play()
+					else
+				movehoveranim:Stop()
+				   hoveranim:Play()
+					end
+				end)
+				noclip2 = true
+				follow2 = true
+				local A_1 = "Stand 4 : ON" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+				local A_1 = "Ready." local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)   
+				game:GetService('RunService').Stepped:connect(function()
+					if follow2 == true and Pos3 == "Right" then
+						hoveranim:Play()
+						game:GetService("Players")[alt4].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(2, 0.8, 2.5)
+					elseif follow2 == true and Pos3 == "Left" then
+						hoveranim:Play()
+						game:GetService("Players")[alt4].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(-2, 7, 2.5)
+					elseif follow2 == true and Pos3 == "Back" then
+						hoveranim:Play()
+						game:GetService("Players")[alt4].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(.6, 13, 3)
+					end
+				end)
+			end
+		end)
+	else
+		print("declined")
+	end
+	end
+
+	if alt5bool == true then 
+		if lp == Players[alt5] then 
+		
+	local e = Instance.new("Part", game.Workspace)
+	e.Parent = game.Workspace
+	e.Name = "FLOATPART"
+	e.Transparency = 0
+	e.Anchored = true
+	noclip2 = true
+	follow2 = true
+
+
+	game:GetService('RunService').Stepped:connect(function()
+		if noclip2 == true then
+			e.CFrame = game.Players[alt5].Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.6 , 0)
+			for i, v in pairs(game.Players[alt5].Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+				end
+			end
+		else
+			for i, v in pairs(game.Players[alt5].Character:GetDescendants()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = true
+				end
+			end
+			e.CFrame = game.Players[alt5].Character.HumanoidRootPart.CFrame + Vector3.new(0, -50 , 0)
+		end
+	end)
+	--end
+
+
+
+
+
+	game.Players[OWNER].Chatted:Connect(function(msg)
+		if msg == ("Set5") or msg == ("Set all!") then
+
+			Pos2 = "Back"
+			local hover = Instance.new("Animation", game.Workspace)
+			hover.Name = "Hover"
+			hover.AnimationId = "rbxassetid://3541114300"
+			local char = game.Players.LocalPlayer.Character
+			local hoveranim = char.Humanoid:LoadAnimation(game.Workspace.Hover)
+		
+			local movehover = Instance.new("Animation", game.Workspace)
+		movehover.Name = "MoveHover"
+		movehover.AnimationId = "rbxassetid://3541044388"
+		local char = game.Players.LocalPlayer.Character
+		local movehoveranim = char.Humanoid:LoadAnimation(game.Workspace.MoveHover)
+		
+		
+		local followplayer = game.Players[OWNER]
+		followplayer.Character.Humanoid.Changed:Connect(function()
+		if followplayer.Character.Humanoid.MoveDirection.Magnitude ~= 0 then
+		movehoveranim:Play()
+			else
+		movehoveranim:Stop()
+		   hoveranim:Play()
+			end
+		end)
+
+			noclip2 = true
+			follow2 = true
+			local A_1 = "Stand 5 : ON" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+			local A_1 = "Ready." local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)  
+			game:GetService('RunService').Stepped:connect(function()
+				if follow2 == true and Pos2 == "Right" then
+					hoveranim:Play()
+					game:GetService("Players")[alt5].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(10, 5, 2.5)
+				elseif follow2 == true and Pos2 == "Left" then
+					hoveranim:Play()
+					game:GetService("Players")[alt5].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(-2, 10, 2.5)
+				elseif follow2 == true and Pos2 == "Back" then
+					hoveranim:Play()
+					game:GetService("Players")[alt5].Character.HumanoidRootPart.CFrame = game:GetService("Players")[OWNER].Character.HumanoidRootPart.CFrame * CFrame.new(0, 9, 8)
+				end
+			end)
+
+		end
+	end)
+else
+	print("declined")
+end
+end
+
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Set off") then
+		follow2 = false 
+		noclip2 = false
+	end
+end)
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Massacre!") then
+		if  alt5bool == true and lp == Players[alt5] then 
+			print("Massacre declined")
+		else
+		follow2 = false
+		noclip2 = false
+		killnear = true
+		local A_1 = "Massacre Turned ON" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+		play(616593932, true, true) 
+		end
+	end
+end)
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("end M!") then
+		if  alt5bool == true and lp == Players[alt5] then 
+			print("Massacre declined")
+		else
+		killnear = false
+		follow2 = true
+		noclip2 = true
+		local A_1 = "Massacre turned OFF" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+		play(2554208392,true ,true)
+		end
+	end
+end)
+
+local godplayer = game.Players.LocalPlayer
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("god1") then 
+		local A_1 = "setting god : alt1" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+		godplayer = game.Players[alt1]
+	elseif msg == ("god3") then 
+		local A_1 = "setting god : alt3" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+		godplayer = game.Players[alt3]
+	elseif msg == ("god4") then 
+		godplayer = game.Players[alt4]
+		local A_1 = "setting god : alt4" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+	elseif msg == ("god2") then 
+		godplayer = game.Players[alt2]
+		local A_1 = "setting god : alt2" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+	elseif msg == ("god all") then
+		local A_1 = "setting god : All alt" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+		godplayer = game.Players.LocalPlayer
+	end
+	end)
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("God!") then
+		
+		if numberofalts >= 1 and alt1bool == true  then 
+			local A_1 = "Godmode: On" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+
+			wait(2.5)
+	
+			local player = godplayer
+	
+			local function DeleteChar()
+				for i,v in pairs(player.Character:GetChildren()) do
+					if v:IsA('MeshPart') or v:IsA('Part') or v:IsA('Accessory') then
+						v:Destroy()
+					end
+				end
+			end
+	
+			DeleteChar()
+			local newCharacter =  game.Workspace:WaitForChild(player.Name)
+			local spoofFolder = Instance.new('Folder');
+			spoofFolder.Name = 'FULLY_LOADED_CHAR';
+			spoofFolder.Parent = newCharacter;
+			newCharacter:WaitForChild('RagdollConstraints'):Destroy();
+			local spoofValue = Instance.new('BoolValue', newCharacter);
+			spoofValue.Name = 'RagdollConstraints';            
+	
+			--god bullet
+			local armor = godplayer.Character.BodyEffects.Armor
+			local clone = godplayer.Character.BodyEffects.Armor:Clone()
+			clone:Clone()
+			clone.Parent = godplayer.Character.BodyEffects
+			armor:Destroy()
+			--end
+	
+	
+			--god block
+			local defense = godplayer.Character.BodyEffects.Defense
+			local clone1 = godplayer.Character.BodyEffects.Defense:Clone()
+			clone1:Clone()
+			clone1.Parent = godplayer.Character.BodyEffects
+			defense:Destroy()
+			--end
+	
+	
+	
+	
+			repeat wait() 
+				local A_1 = "Block"
+				local A_2 = "True"
+				local Event = game:GetService("ReplicatedStorage").MainEvent
+				Event:FireServer(A_1,A_2)
+	
+				for _,v in pairs(player.Character:FindFirstChildWhichIsA('Humanoid'):GetPlayingAnimationTracks()) do
+					if v.Name == 'Block' then
+						v:Stop()
+					end
+				end    
+			until block == false or godplayer.PlayerGui.MainScreenGui.AmmoFrame.Visible == true
+	
+			while wait() do
+				pcall(function()
+					if godplayer.PlayerGui.MainScreenGui.AmmoFrame.Visible == true then
+						block = false
+					else
+						if godplayer.PlayerGui.MainScreenGui.AmmoFrame.Visible == false then
+							block = true
+						end
+					end
+				end)
+			end
+		
+	elseif numberofalts > 4 and lp == Players[alt5] and alt5bool then
+			print("god declined")
+		end
+	end
+end)
+	
+
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Evolution..") then
+
+		mimic = false
+		barragepos = false
+		killnear = false
+		vanish = false
+		barragepunch = false
+		killtheplayer = false
+		Block = false
+		wait()
+		evolvefollow = true
+		game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+
+		local function rm()
+			for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v.Name == "OriginalPosition" then
+					v:Destroy()
+				elseif v.Name == "OriginalSize" then
+					v:Destroy()
+				elseif v.Name == "AvatarPartScaleType" then
+					v:Destroy()
+				end
+			end
+		end
+		local Humanoid = game.Players.LocalPlayer.Character.Humanoid
+
+
+		local player = game.Players.LocalPlayer
+		local anim = Instance.new("Animation")
+		anim.AnimationId = "rbxassetid://2788838708"
+		local play = player.Character:WaitForChild("Humanoid"):LoadAnimation(anim)
+		play:AdjustSpeed(0.1)
+
+		play:Play()
+
+		rm()
+		wait(0.5)
+		Humanoid:FindFirstChild("BodyTypeScale"):Destroy()
+		wait(1)
+
+		rm()
+		wait(0.5)
+		Humanoid:FindFirstChild("BodyWidthScale"):Destroy()
+		wait(1)
+
+		rm()
+		wait(0.5)
+		Humanoid:FindFirstChild("BodyDepthScale"):Destroy()
+		play:Play()
+		wait()
+
+		rm()
+		wait(0.5)
+		Humanoid:FindFirstChild("HeadScale"):Destroy()
+	end
+end)
+
+local resetplayer = game.Players.LocalPlayer
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+if msg == ("Reset1") then 
+	local A_1 = "setting reset : alt1" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+	resetplayer = game.Players[alt1]
+elseif msg == ("reset3") then 
+	local A_1 = "setting reset : alt3" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+	resetplayer = game.Players[alt3]
+elseif msg == ("reset4") then 
+	resetplayer = game.Players[alt4]
+	local A_1 = "setting reset : alt4" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+elseif msg == ("reset2") then 
+	resetplayer = game.Players[alt2]
+	local A_1 = "setting reset : alt2" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+elseif msg == ("reset all") then
+	local A_1 = "setting reset : All alt" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+	resetplayer = game.Players.LocalPlayer
+end
+end)
+
+local commands = {}
+local prefix = "/"
+local setuserbool = false
+
+
+commands.e = function(arguments)
+	local CMD = arguments[1]
+	if CMD == 'setuser' then
+		if arguments[2] then
+			setuserbool = true
+			if setuserbool == true then 
+			local target =  tostring(findPlayer2(arguments[2]))
+            OWNER = target
+			StandUser = game.Players[target]
+			local A_1 = ("new owner : " ..target) local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+			play(2554208392,true ,true)
+
+			if OWNER == target then 
+			game.Players[OWNER].Chatted:Connect(function(msg)
+				if msg == ("end M!") then
+					if  alt5bool == true and lp == Players[alt5] and  setuserbool == true then 
+						print("Massacre declined")
+					elseif setuserbool == true then
+					killnear = false
+					follow2 = true
+					noclip2 = true
+					local A_1 = "Massacre turned OFF" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
+					play(2554208392,true ,true)
+					end
+				end
+			end)
+			game.Players[OWNER].Chatted:Connect(function(msg)
+				if msg == ("Massacre!") or msg == ("massacre!") then
+					if  alt5bool == true and lp == Players[alt5]  then 
+						print("Massacre declined")
+					elseif setuserbool == true then 
+					follow2 = false
+					noclip2 = false
+					killnear = true
+					local A_1 = "Massacre Turned ON" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
+					play(616593932, true, true) 
+					end
+				end
+			end)
+		end
+	end
+	else print("he not the owner")
+        
+	end
+    end
+end
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	msg = string.lower(msg)
+	local splitString = msg:split(" ")
+	local slashCommand = splitString[1] 
+	local cmd = slashCommand:split(prefix)    
+	local cmdName = cmd[2]    
+	if commands[cmdName] then
+		local arguments = {} 
+		for i = 2, #splitString, 1 do
+			table.insert(arguments,splitString[i])            
+		end
+		commands[cmdName](arguments)
+	end
+end)
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("ResetOwner!") then
+		OWNER = getgenv().Settings.Owner
+		StandUser = game.Players[OWNER]
+		play(2554208392,true ,true)
+		setuserbool = false
+	end
+end)
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("help") then
+
+		noclip2 = false
+		killtheplayer = false	
+		killnear = false	
+		follow2 = false
+		
+		game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+
+		repeat wait()
+			if game.Players[OWNER].Character.BodyEffects["K.O"].Value == true then
+
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[OWNER].Character.UpperTorso.Position) * CFrame.new(0,1,0)
+				wait(.4)
+				game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
+				wait(.4)
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-484.67132568359, 41.499858856201, -100.71377563477)
+				wait(1.5)
+				game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
+
+			end
+
+			if game.Players[OWNER].Character.BodyEffects["K.O"].Value == false then
+
+				noclip2 = true
+				follow2 = true
+
+			end
+		until game.Players[OWNER].Character.BodyEffects["K.O"].Value == false
+
+	end
+end)
+
+game.Players[OWNER].Chatted:Connect(function(msg)
+	if msg == ("Reset!") then
+		 if alt5bool == true and lp == Players[alt5]  then 
+			print("reset refused")
+		else 
+		
+		resetplayer.Character.Head:Destroy()
+		resetplayer.Character.RightHand:Destroy()
+		resetplayer.Character.LeftHand:Destroy()
+		resetplayer.Character.LowerTorso:Destroy()
+		resetplayer.Character.UpperTorso:Destroy()
+		resetplayer.Character.LeftLowerLeg:Destroy()
+		resetplayer.Character.RightLowerLeg:Destroy()
+		resetplayer.Character.RightFoot:Destroy()
+		resetplayer.Character.LeftFoot:Destroy()
+		resetplayer.Character.LeftUpperLeg:Destroy()
+		resetplayer.Character.RightUpperLeg:Destroy()
+		resetplayer.Character.RightUpperArm:Destroy()
+		resetplayer.Character.RightLowerArm:Destroy()
+		resetplayer.Character.LeftLowerArm:Destroy()
+		resetplayer.Character.LeftUpperArm:Destroy()
+	end
+end
+end)
+
+if game:GetService("Players")[OWNER] then 
+	noclip2 = false
+end
+end
+
+
+local OriginalKeyUpValue = 0
+function StopAudio()
+	if game:GetService("Players").LocalPlayer.Character.LowerTorso:FindFirstChild("BOOMBOXSOUND") then
+		game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND:Stop()
+	end
+end
+
+function stop(ID, Key)
+	local cor = coroutine.wrap(function()
+		wait(game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.TimeLength-0.1)
+		if game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and OriginalKeyUpValue == Key then
+			StopAudio()
+		end
+	end)
+	cor()
+end
+
+function play(ID, STOP, LMAO)
+	if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
+		local Tool = nil
+		if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool") and LMAO == true then
+			Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool")
+			game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Parent = game:GetService("Players").LocalPlayer.Backpack
+		end
+		game:GetService("Players").LocalPlayer.Backpack["[Boombox]"].Parent =
+			game:GetService("Players").LocalPlayer.Character
+		game.ReplicatedStorage.MainEvent:FireServer("Boombox", ID)
+		game:GetService("Players").LocalPlayer.Character["[Boombox]"].RequiresHandle = false
+		if game:GetService("Players").LocalPlayer.Character["[Boombox]"]:FindFirstChild("Handle") then
+			game:GetService("Players").LocalPlayer.Character["[Boombox]"].Handle:Destroy()
+		end
+		game:GetService("Players").LocalPlayer.Character["[Boombox]"].Parent =
+			game:GetService("Players").LocalPlayer.Backpack
+		game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.BoomboxFrame.Visible = false
+		if Tool ~= true then
+			if Tool then
+				Tool.Parent = game:GetService("Players").LocalPlayer.Character
+			end
+		end
+		if STOP == true then
+			game:GetService("Players").LocalPlayer.Character.LowerTorso:WaitForChild("BOOMBOXSOUND")
+			local cor = coroutine.wrap(function()
+				repeat wait() until game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.TimeLength > 0.01
+				OriginalKeyUpValue = OriginalKeyUpValue+1
+				stop(ID, OriginalKeyUpValue)
+			end)
+			cor()
+		end
+	end
+end
+
+game:GetService('RunService').Stepped:connect(function()
+	if killnear == true then
+		follow2 = false
+		noclip2 = false
+
+		local target = GetNearest()
+		if target then
+			local targetchar = target.Character
+			if targetchar.BodyEffects['K.O'].Value == false then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetchar.HumanoidRootPart.CFrame
+				Hit()
+			end
+		else
+			follow2 = true
+			noclip2 = true
+		end
+	end
+end)
+
+
+else 
+	print("already injected")
+end 
+elseif getgenv().whitelisted == false then 
+	print("not whitelisted!")
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "not whitelisted!"; 
+		Text = "error u not whitelisted!";
+		Duration = 30;
+	})
+	game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+		game.Players.LocalPlayer:Kick()
+		end)
+end
